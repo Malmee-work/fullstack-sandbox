@@ -3,10 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.12.3",
-    "@material-ui/icons": "^4.11.2",
-    "@material-ui/styles": "^4.11.4",
+    "@date-io/moment": "^2.11.0",
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
+    "@mui/core": "^5.0.0-alpha.54",
+    "@mui/icons-material": "^5.1.0",
+    "@mui/lab": "^5.0.0-alpha.54",
+    "@mui/material": "^5.1.0",
+    "@mui/styles": "^5.1.0",
+    "date-fns": "^2.25.0",
     "react": "^17.0.2",
+    "react-datetime": "^3.1.1",
     "react-dom": "^17.0.2",
     "react-scripts": "^4.0.3"
   },
@@ -14,7 +21,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format": "prettier --write \"**/*.+(js|jsx)\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -24,5 +32,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "prettier": "2.4.1"
+  }
 }
