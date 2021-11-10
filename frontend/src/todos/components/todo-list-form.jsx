@@ -84,16 +84,18 @@ export const ToDoListForm = ({ toDoList }) => {
   };
 
   const save = (updatedTodoList) => {
-    const indexOfUncheckedItem = updatedTodoList.todos.findIndex(
-      (item) => item.checked === false
-    );
-    let allChecked;
-    if (indexOfUncheckedItem === -1) {
-      allChecked = true;
-    } else {
-      allChecked = false;
+    if (updatedTodoList.todos.length > 0) {
+      const indexOfUncheckedItem = updatedTodoList.todos.findIndex(
+        (item) => item.checked === false
+      );
+      let allChecked;
+      if (indexOfUncheckedItem === -1) {
+        allChecked = true;
+      } else {
+        allChecked = false;
+      }
+      updatedTodoList.checked = allChecked;
     }
-    updatedTodoList.checked = allChecked;
     setTodoList(updatedTodoList);
     debouncedSave(updatedTodoList);
   };
@@ -128,8 +130,11 @@ export const ToDoListForm = ({ toDoList }) => {
 
   // on todo list check
   const onCheckList = (value) => {
-    const todoItems = todoList.todos.map((item) => ({ ...item, checked: value }));
-    const updatedTodoList = { ...todoList, todos: todoItems };
+    const updatedTodoList = { ...todoList, checked: value };
+    if (todoList.todos.length > 0) {
+      const todoItems = todoList.todos.map((item) => ({ ...item, checked: value }));
+      updatedTodoList.todos = todoItems;
+    }
     save(updatedTodoList);
   };
 
